@@ -4,4 +4,4 @@ COPY src /src
                                  
 EXPOSE 7012
 
-CMD ["node",  "src.main.js"]
+CMD ["node",  "src/main.js"]
