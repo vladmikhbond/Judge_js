@@ -30,10 +30,8 @@ export default async function exec(code, timeout = 5000)
     });
 
     child.on('close', (exitCode, signal) => {
-      if (timer) clearTimeout(timer);
-      // console.log({ stderr, exitCode, signal, timedOut })
-      // resolve({ stderr, exitCode, signal, timedOut });
-
+      if (timer) 
+        clearTimeout(timer);
       // interpret result
       if (timedOut) 
         resolve("Wrong. Exceded timeout.");
@@ -41,7 +39,10 @@ export default async function exec(code, timeout = 5000)
         resolve("OK.");
       else if (stderr.includes("Error: Wrong"))
         resolve("Wrong.");
-      else 
+      else if (stderr.includes("SyntaxError:")) {
+        let i = stderr.indexOf("SyntaxError:");
+        resolve(stderr.slice(i));
+      } else 
         resolve("Error. " + stderr);
     });
   });
