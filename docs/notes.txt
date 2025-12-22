@@ -1,0 +1,10 @@
+
+TODO:
+
+--- збірка і запуск продуктового контейнеру judge_js_cont
+
+cd c:\git\DOCK\Judge_js
+docker build -t judge_js_img .
+docker run -d  --network mynet -p 7012:7012  --name judge_js_cont  judge_js_img
+docker save -o c:\docker_bag\judge_js.tar judge_js_img
+

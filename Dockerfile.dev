@@ -1,0 +1,14 @@
+ 
+FROM node:20
+
+
+# Копіюємо requirements.txt у контейнер (опціонально — VS Code і сам це зробить)
+# COPY requirements.txt /tmp/requirements.txt
+COPY src /src
+
+
+# Встановлюємо Python-залежності
+# RUN pip install --no-cache-dir -r /tmp/requirements.txt
+                                 
+# Відкриваємо порт
+EXPOSE 7011
