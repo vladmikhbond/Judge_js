@@ -4,4 +4,4 @@ COPY src /src
                                  
 EXPOSE 7012
 
-CMD ["python", "-m", "src.main"]
+CMD ["node",  "src.main.js"]
