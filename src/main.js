@@ -26,10 +26,9 @@ const server = createServer((req, res) =>
         }
 
         // Надсилаємо відповідь 
-        const result = await exec(code, timeout);
+        const ecec_result = await exec(code, timeout);
         res.writeHead(200, { 'Content-Type': 'text/plain' });
-        const s = JSON.stringify(result)
-        res.end(s);
+        res.end(ecec_result);
       } catch (err) {
         res.writeHead(400, { 'Content-Type': 'text/plain' });
         res.end('Invalid JSON');

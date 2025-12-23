@@ -36,9 +36,9 @@ export default async function exec(code, timeout = 5000)
       if (timedOut) 
         resolve("Wrong. Exceded timeout.");
       else if (stderr.includes("Error: OK"))
-        resolve("OK.");
+        resolve("OK");
       else if (stderr.includes("Error: Wrong"))
-        resolve("Wrong.");
+        resolve("Wrong");
       else if (stderr.includes("SyntaxError:")) {
         let i = stderr.indexOf("SyntaxError:");
         resolve(stderr.slice(i));
